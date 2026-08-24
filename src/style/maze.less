@@ -1,0 +1,164 @@
+.MazeHome {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+
+    .main {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    .minMap {
+        position: absolute;
+        top: 5vh;
+        right: 2vw;
+        width: 26.5vw;
+        height: 34vh;
+        background-size: 100% 100%;
+        z-index: 101;
+        &.zoomed {
+            // 居中位置由内联样式控制，清除 right 避免干扰
+            right: auto;
+        }
+     
+        .peopleArrow {
+            position: absolute;
+            left: 5.6vw;
+            top: 14.2vh;
+            background-size: 100% 100%;
+            width: 1.1vw;
+            height: 2vh;
+            background-image: url('../assets/maze-3d/yuanFlag.png');
+           animation: breathing 1.2s ease-in-out infinite;
+        }
+
+    }
+    // 小地图放大时的全屏黑色模糊遮罩（z-index 低于小地图，高于普通内容）
+    .minmap-mask {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(5px);
+        z-index: 100;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+
+        &.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    }
+
+    @keyframes breathing {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.25); /* 放大到 1.25 倍，可根据你的视觉需求微调 */
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+    .select-direction {
+        position: absolute;
+        left: 42.5vw;
+        top: 76vh;
+        width: 15vw;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .direction-row {
+            display: flex;
+            justify-content: center;
+        }
+
+        .direction-btn {
+            width: 4vw;
+            height: 7vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-size: 100% 100%;
+            cursor: pointer;
+            user-select: none;
+            margin-left: 0.2vw;
+            margin-top: 0.3vh;
+            transition: all 0.2s;
+
+            &:active {
+                transform: scale(0.9);
+            }
+
+            &:hover {
+                transform: scale(1.05);
+            }
+        }
+    }
+    .fail-message{
+        .resetBtn{
+             &:active {
+                transform: scale(0.9);
+            }
+
+            &:hover {
+                transform: scale(1.05);
+            }
+        }
+    }
+    .select-box {
+        position: absolute;
+        top: 15vh;
+        left: 0;
+        width: 7vw;
+        height: 50vh;
+        opacity: 0;
+        z-index: 105;
+
+        .selectItem {
+            position: absolute;
+            width: 4.2vw;
+            height: 9.8vh;
+            background-size: 100% 100%;
+            transition: all 0.2s ease-in-out;
+            cursor: pointer;
+        }
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+    .success-message{
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        background-size: 100% 100%;
+        z-index: 102;
+        background-image: url('../assets/maze-3d/successback.png');
+        .success-content{
+        position: absolute;
+        left: 24.75vw;
+        top: 28vh;
+        width: 50.5vw;
+        height: 26.38vh;
+       background-image: url('../assets/maze-3d/successmessage.png');
+        background-size: 100% 100%;
+    }
+    .next-btn{
+         &:active {
+                transform: scale(0.9);
+            }
+
+            &:hover {
+                transform: scale(1.05);
+            }
+    }
+    }
+}

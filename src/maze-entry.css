@@ -1,0 +1,11 @@
+/*
+* 迷宫独立入口样式（不含 @font-face，避免 15MB 字体内联）
+*/
+#root {
+  width: 100vw;
+  height: 100vh;
+}
+
+body {
+  margin: 0;
+}

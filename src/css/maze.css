@@ -1,0 +1,61 @@
+.MazeHome {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+}
+.MazeHome .main {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.MazeHome .minMap {
+  position: absolute;
+  top: 5vh;
+  right: 2vw;
+  width: 26.5vw;
+  height: 34vh;
+  background-size: 100% 100%;
+  background-image: url('http://wx-distribution.oss-cn-hangzhou.aliyuncs.com/distribution/20220427/maze-3d/minMap1.png');
+}
+.MazeHome .minMap .peopleArrow {
+  position: absolute;
+  left: 5.6vw;
+  top: 14.2vh;
+  background-size: 100% 100%;
+  width: 2vw;
+  height: 2vh;
+  background-image: url('http://wx-distribution.oss-cn-hangzhou.aliyuncs.com/distribution/20220427/maze-3d/peopleIcon.png');
+}
+.MazeHome .select-direction {
+  position: absolute;
+  left: 42.5vw;
+  top: 45vh;
+  width: 15vw;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.MazeHome .select-direction .direction-row {
+  display: flex;
+  justify-content: center;
+}
+.MazeHome .select-direction .direction-btn {
+  width: 4vw;
+  height: 7vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: 100% 100%;
+  cursor: pointer;
+  user-select: none;
+  margin-left: 0.2vw;
+  margin-top: 0.3vh;
+  transition: all 0.2s;
+}
+.MazeHome .select-direction .direction-btn:active {
+  transform: scale(0.9);
+}
+.MazeHome .select-direction .direction-btn:hover {
+  transform: scale(1.05);
+}

@@ -1,0 +1,32 @@
+.grain-home {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('http://wx-distribution.oss-cn-hangzhou.aliyuncs.com/distribution/20220427/grain-3d/grainBack.png');
+  background-size: 100% 100%;
+}
+.grain-home .main-home {
+  position: absolute;
+  left: 27.6vw;
+  top: 25.7vh;
+  width: 64.2vw;
+  height: 61.2vh;
+  border-bottom-left-radius: 1.2vw;
+  border-bottom-right-radius: 1.2vw;
+  overflow: hidden;
+}
+.grain-home .main-home .main {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 64.5vw;
+  height: 62vh;
+}
+.grain-home .grain-ui {
+  position: absolute;
+  top: 2vh;
+  z-index: 2;
+  width: 20vw;
+  height: 50vh;
+  background-color: red;
+}

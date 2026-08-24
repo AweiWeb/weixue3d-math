@@ -1,0 +1,148 @@
+.grain-home {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('http://wx-distribution.oss-cn-hangzhou.aliyuncs.com/distribution/20220427/grain-3d/grainBack.jpg');
+    background-size: 100% 100%;
+
+    .main-home {
+        position: absolute;
+        left: 27.6vw;
+        top: 25.7vh;
+        width: 64.2vw;
+        height: 61.2vh;
+        border-bottom-left-radius: 1.2vw;
+        border-bottom-right-radius: 1.2vw;
+        overflow: hidden;
+        // background-color: red;
+
+        .main {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 64.5vw;
+            height: 62vh;
+        }
+    }
+
+    .grain-ui {
+        position: absolute;
+        top: 5.5vh;
+        z-index: 2;
+        width: 17.6vw;
+        left: 3vw;
+        height: 90vh;
+        
+        .grain-input {
+            position: absolute;
+            left: 1.4vw;
+            width: 14.8vw;
+            height: 5.2vh;
+            background: transparent;
+            border: none;
+            outline: none;
+            color: black;
+            font-size: 1.2vw;
+            font-family: 'jiang700W';
+            text-align: center;
+            font-size: calc(1.2vw + 1.2vh);
+            &:focus {
+                border: none;
+                outline: none;
+                box-shadow: none;
+            }
+
+            &:hover {
+                border: none;
+            }
+
+            // 去掉 number 输入框的上下箭头
+            &::-webkit-outer-spin-button,
+            &::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+            -moz-appearance: textfield;
+        }
+
+        .riceX-input { top: 6.5vh; }
+        .riceX-slider{
+            position: absolute;
+            top: 44.5vh;
+            left: 2.5vw;
+            width: 12.5vw;
+        }
+        .riceY-input { top: 19.1vh; }
+        .riceY-slider{
+            position: absolute;
+            top: 66.3vh;
+            left: 2.5vw;
+            width: 12.5vw;
+        }
+        .riceZ-input { top: 31.7vh; }
+        .riceZ-slider{
+            position: absolute;
+            top: 55.3vh;
+            left: 2.5vw;
+            width: 12.5vw;
+        }
+        .riceX-slider, .riceY-slider, .riceZ-slider {
+    // 轨道背景（未填充部分）
+    .ant-slider-rail {
+        background-color: white;
+    }
+    // 轨道填充（已滑过部分）
+    .ant-slider-track {
+      
+    }
+    // 滑块圆点
+    .ant-slider-handle::after {
+
+    }
+}
+    }
+ .grain-primary-button {
+    position: absolute;
+    left: 2.5vw;
+    top: 81.5vh;
+    width: 12.5vw;
+    height: 6.5vh;
+    background-image: url('http://wx-distribution.oss-cn-hangzhou.aliyuncs.com/distribution/20220427/grain-3d/createBtn.png');
+    background-size: 100% 100%;
+    cursor: pointer; 
+
+    transition: transform 0.1s cubic-bezier(0.4, 0, 0.2, 1), filter 0.1s ease;
+}
+.grain-primary-button:hover {
+    transform: scale(1.03);
+    filter: brightness(1.05);
+}
+
+.grain-primary-button:active {
+    transform: scale(0.92);
+    filter: brightness(0.85);
+}
+    .modeSelect{
+        position: absolute;
+        left: 1.5vw;
+        top: 72.5vh;
+        width: 15vw;
+        height: 6.5vh;
+        background-size: 100% 100%;
+        .modeSelect-left{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 7.5vw;
+            height: 6.5vh;
+        }
+        .modeSelect-right{
+            position: absolute;
+            left: 7.5vw;
+            top: 0;
+            width: 7.5vw;
+            height: 6.5vh;
+
+        }
+    }
+}

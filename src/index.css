@@ -1,0 +1,17 @@
+@font-face {
+  font-family: 'jiang700W';
+  src: url('./assets/jiang700W.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+}
+
+body {
+  margin: 0;
+  font-family: 'jiang700W', sans-serif;
+}
