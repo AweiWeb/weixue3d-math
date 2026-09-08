@@ -17,23 +17,75 @@
         height: 34vh;
         background-size: 100% 100%;
         z-index: 101;
+        overflow: hidden;
+
         &.zoomed {
             // 居中位置由内联样式控制，清除 right 避免干扰
             right: auto;
         }
-     
+
         .peopleArrow {
             position: absolute;
             left: 5.6vw;
             top: 14.2vh;
             background-size: 100% 100%;
-            width: 1.1vw;
-            height: 2vh;
-            background-image: url('../assets/maze-3d/yuanFlag.png');
-           animation: breathing 1.2s ease-in-out infinite;
+            width: 2.2vw;
+            height: 4vh;
+            background-image: url('../assets/maze-3d/peopleArrow.png');
+
+            //    animation: breathing 1.2s ease-in-out infinite;
+            .dir-btn {
+                position: absolute;
+                width: 2.6vw;
+                height: 2.6vw;
+                background-color: transparent;
+                border: 2px solid transparent;
+                border-radius: 50%;
+                // border-radius: 0;
+                cursor: pointer;
+                transform: translate(-50%, -50%);
+                pointer-events: auto;
+                transition: border-color 0.2s ease, border-radius 0.2s ease;
+
+                &:hover {
+                    border-color: #fff;
+                }
+                &.disabled:hover{
+                    border-color: transparent;
+                }
+            }
+
+            /* 根据箭头中心 (50%, 50%) 向四周扩散 */
+            .dir-btn.forward {
+                top: 50%;
+                left: 180%;
+                /* 箭头右侧 */
+
+            }
+
+            .dir-btn.backward {
+                top: 50%;
+                left: -80%;
+                /* 箭头左侧 */
+
+            }
+
+            .dir-btn.left {
+                top: -80%;
+                /* 箭头正上方 */
+                left: 50%;
+
+            }
+
+            .dir-btn.right {
+                top: 180%;
+                /* 箭头正下方 */
+                left: 50%;
+            }
         }
 
     }
+
     // 小地图放大时的全屏黑色模糊遮罩（z-index 低于小地图，高于普通内容）
     .minmap-mask {
         position: fixed;
@@ -55,16 +107,20 @@
     }
 
     @keyframes breathing {
-    0% {
-        transform: scale(1);
+        0% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(1.25);
+            /* 放大到 1.25 倍，可根据你的视觉需求微调 */
+        }
+
+        100% {
+            transform: scale(1);
+        }
     }
-    50% {
-        transform: scale(1.25); /* 放大到 1.25 倍，可根据你的视觉需求微调 */
-    }
-    100% {
-        transform: scale(1);
-    }
-}
+
     .select-direction {
         position: absolute;
         left: 42.5vw;
@@ -102,9 +158,10 @@
             }
         }
     }
-    .fail-message{
-        .resetBtn{
-             &:active {
+
+    .fail-message {
+        .resetBtn {
+            &:active {
                 transform: scale(0.9);
             }
 
@@ -113,6 +170,7 @@
             }
         }
     }
+
     .select-box {
         position: absolute;
         top: 15vh;
@@ -135,30 +193,33 @@
             opacity: 1;
         }
     }
-    .success-message{
+
+    .success-message {
         position: absolute;
         width: 100vw;
         height: 100vh;
         background-size: 100% 100%;
         z-index: 102;
         background-image: url('../assets/maze-3d/successback.png');
-        .success-content{
-        position: absolute;
-        left: 24.75vw;
-        top: 28vh;
-        width: 50.5vw;
-        height: 26.38vh;
-       background-image: url('../assets/maze-3d/successmessage.png');
-        background-size: 100% 100%;
-    }
-    .next-btn{
-         &:active {
+
+        .success-content {
+            position: absolute;
+            left: 24.75vw;
+            top: 28vh;
+            width: 50.5vw;
+            height: 26.38vh;
+            background-image: url('../assets/maze-3d/successmessage.png');
+            background-size: 100% 100%;
+        }
+
+        .next-btn {
+            &:active {
                 transform: scale(0.9);
             }
 
             &:hover {
                 transform: scale(1.05);
             }
-    }
+        }
     }
 }

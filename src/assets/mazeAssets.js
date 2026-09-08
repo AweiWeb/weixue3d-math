@@ -54,7 +54,9 @@ import left3Url from './maze-3d/left3.png'
 import right1Url from './maze-3d/right1.png'
 import right2Url from './maze-3d/right2.png'
 import right3Url from './maze-3d/right3.png'
-
+import maskMap1 from './maze-3d/mapMark1.png'
+import maskMap2 from './maze-3d/mapMark2.png'
+import maskMap4 from './maze-3d/mapMark4.png'
 export const gameMapUrls = { map: map1Url, map2: map2Url, map3: map3Url, map4: map4Url }
 export const peopleUrl = p7Url
 export const endDoorUrl = doorUrl
@@ -72,6 +74,7 @@ export const uiImages = {
     yuanFlag: yuanFlagUrl,
     startbox: { 1: start1Url, 2: start2Url, 3: start3Url, 4: start4Url },
     minMap: { 1: minMap1Url, 2: minMap2Url, 3: minMap3Url, 4: minMap4Url },
+    maskMap: {1: maskMap1, 2: maskMap2, 4: maskMap4},
     levelSelect: {
         1: { normal: level11Url, active: level12Url },
         2: { normal: level21Url, active: level22Url },

@@ -1,27 +1,38 @@
-const countData = {
-    x: 8,
-    y: 1,
-    z: 6,
+import { useGLTF } from "@react-three/drei"
+import { useEffect, useMemo } from "react"
+import { Mesh, Vector3 } from "three"
+
+const BlockMaps = ({ name, ...props }) => {
+    const { scene } = useGLTF('/blockMaze/mazeBlock1.glb')
+    useEffect(() => {
+        scene.traverse((child) => {
+            if (child instanceof Mesh) {
+                // console.log(child);
+                child.castShadow = true
+                child.receiveShadow = true
+
+            }
+        })
+    }, [scene])
+    /*
+    * 获取地图的初始数据
+    */
+    const Position = useMemo(() => {
+        const position = []
+        scene.traverse((child) => {
+            if (child instanceof Mesh) {
+                // console.log(child);
+                const worldPos = new Vector3()
+                child.getWorldPosition(worldPos)
+                // console.log(worldPos);
+                position.push(worldPos)
+            }
+        })
+        return position
+    }, [scene])
+    console.log(Position);
+
+    return <primitive object={scene} position={[-0.35, -1.3, -0.21]} />
 }
-
-// 根据countData生成地图 y 就是固定数量1, x乘z
-const BlockMaps = () => {
-    return <group position={[-2, -0.01, 0]}>
-        {Array.from({ length: countData.x }, (_, i) => (
-            Array.from({ length: countData.z }, (_, j) => (
-                <Block key={j} position={[i, 0, j]} />
-            ))
-        ))}
-    </group>
-}
-
-
-const Block = (props) => {
-    return <mesh rotation-x={-Math.PI * 0.5} {...props}>
-        <planeGeometry args={[1, 1]} />
-        <meshBasicMaterial color="black" />
-    </mesh>
-}
-
 
 export default BlockMaps

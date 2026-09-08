@@ -24,8 +24,8 @@ const Controller = ({ ID, step, ...props }) => {
     const { speed, stepSize, camerLerp } = useControls('角色调试', {
         speed: {
             min: 0,
-            max: 1,
-            value: 0.6
+            max: 2,
+            value: 1
         },
         stepSize: {
             min: 1,
@@ -56,7 +56,7 @@ const Controller = ({ ID, step, ...props }) => {
             max: 3,
             value: 1,
             step: 0.1
-        }
+        },
     })
 
     const camerOffset = useMemo(() => new THREE.Vector3(offsetX, offsetY, offsetZ), [offsetX, offsetY, offsetZ])

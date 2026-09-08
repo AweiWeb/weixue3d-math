@@ -32,7 +32,7 @@ const router = createHashRouter([
             {
                 path: "cube-animation",
                 Component: CubeAnimation,
-            },
+            }
         ],
     },
 ])

@@ -1,0 +1,307 @@
+.cube-animation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* 替换 100vw */
+  height: 100%;
+  /* 替换 100vh */
+  background-image: url('http://wx-distribution.oss-cn-hangzhou.aliyuncs.com/distribution/20220427/cubeShow/cubeShow-back.png');
+  background-size: 100% 100%;
+  overflow: hidden;
+  /* 🌟 新增：多视图布局层 */
+  /* 子级从左滑入动画 */
+  /* 2. 子级 Pop 弹窗：延迟 3 秒从左侧滑入 */
+}
+.cube-animation .cubeCanvas {
+  position: absolute;
+  left: 41vw;
+  top: 12.1vh;
+  width: 54.4vw;
+  height: 76vh;
+  border-radius: 1.8vw;
+  overflow: hidden;
+}
+.cube-animation .selectBroad {
+  position: absolute;
+  left: 4.5vw;
+  top: 57.1vh;
+  width: 27vw;
+  height: 32vh;
+  display: flex;
+  flex-wrap: wrap;
+}
+.cube-animation .selectBroad .select {
+  width: 7.7vw;
+  height: 5.5vh;
+  background-size: 100% 100%;
+  margin-top: 1vh;
+  margin-left: 1vw;
+}
+.cube-animation .timeSlider {
+  position: absolute;
+  left: 4.5vw;
+  top: 50.7vh;
+  width: 27vw;
+  height: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cube-animation .timeSlider .sliderCube {
+  width: 100%;
+}
+.cube-animation .timeSlider .sliderCube .ant-slider-rail {
+  background-color: white;
+}
+.cube-animation .timeSlider .sliderCube .ant-slider-track {
+  background-color: #ff713f;
+}
+.cube-animation .timeSlider .sliderCube .ant-slider-handle::after {
+  /* 用 2px 的实体阴影模拟边框 */
+  box-shadow: 0 0 0 4px #ff713f !important;
+}
+.cube-animation .static-cube {
+  position: absolute;
+  left: 4.6vw;
+  width: 26.4vw;
+  top: 11.9vh;
+  height: 36.7vh;
+  border-radius: 1.2vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cube-animation .static-cube .cubeImg {
+  width: 24.4vw;
+  height: 27.7vh;
+  background-size: 100% 100%;
+}
+.cube-animation .select-topic {
+  position: absolute;
+  left: 7vw;
+  width: 86vw;
+  top: 15vh;
+  height: 43vh;
+  z-index: 2;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.cube-animation .select-topic .topic {
+  width: 27vw;
+  height: 40vh;
+  background-size: 100% 100%;
+  transition: all linear 0.2s;
+}
+.cube-animation .select-topic .topic:hover {
+  transform: scale(1.01);
+}
+.cube-animation .cubeShowpop {
+  position: absolute;
+  z-index: 10;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.cube-animation .cubeShowpop .resetbtn {
+  position: absolute;
+  left: 40vw;
+  top: 80vh;
+  width: 19.3vw;
+  height: 11.57vh;
+  background-image: url('http://wx-distribution.oss-cn-hangzhou.aliyuncs.com/distribution/20220427/cubeShow/resetSelect.png');
+  background-size: 100% 100%;
+  transition: all linear 0.15s;
+}
+.cube-animation .cubeShowpop .resetbtn:hover {
+  transform: scale(1.03);
+}
+.cube-animation .cubeShowpop .cubeTopic {
+  position: absolute;
+  left: 11vw;
+  top: 7vh;
+  width: 78vw;
+  height: 69.44vh;
+  border-radius: 2vw;
+  background-color: #fff;
+  overflow: hidden;
+}
+.cube-animation .cubeShowpop .cubeTopic .sliderBox {
+  position: absolute;
+  width: 100%;
+  height: 7vh;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cube-animation .cubeShowpop .cubeTopic .sliderBox .topicSlider {
+  width: 88%;
+}
+.cube-animation .cubeShowpop .cubeTopic .sliderBox .topicSlider .ant-slider-rail {
+  background-color: white;
+}
+.cube-animation .cubeShowpop .cubeTopic .sliderBox .topicSlider .ant-slider-track {
+  background-color: #ff713f;
+}
+.cube-animation .cubeShowpop .cubeTopic .sliderBox .topicSlider .ant-slider-handle::after {
+  /* 用 2px 的实体阴影模拟边框 */
+  box-shadow: 0 0 0 4px #ff713f !important;
+}
+.cube-animation .select-box {
+  position: absolute;
+  top: 15vh;
+  left: 0;
+  width: 7vw;
+  height: 30vh;
+  opacity: 0;
+  z-index: 105;
+}
+.cube-animation .select-box .selectItem {
+  position: absolute;
+  width: 4.2vw;
+  height: 9.8vh;
+  background-size: 100% 100%;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+.cube-animation .select-box:hover {
+  opacity: 1;
+}
+.cube-animation .global-canvas-wrap {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.cube-animation .view-container {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.cube-animation .diceMazeMain {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  /* 浮在 Canvas 容器上方 */
+  pointer-events: none;
+  /* 整体穿透，只让需要交互的地方 auto */
+  /* 统一 View 容器样式：让它撑满父级洞口 */
+  /* 洞口 1：主操作区 */
+  /* 洞口 2：你的第二个模型区 */
+}
+.cube-animation .diceMazeMain .view-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.cube-animation .diceMazeMain .dice-home {
+  position: absolute;
+  left: 5.75vw;
+  top: 8vh;
+  width: 88.45vw;
+  height: 84.15vh;
+  pointer-events: auto;
+}
+.cube-animation .diceMazeMain .dice-home .message {
+  position: absolute;
+  width: 59.27vw;
+  height: 3.98vh;
+  background-size: 100% 100%;
+  bottom: 3vh;
+  left: 16vw;
+  z-index: 2;
+}
+.cube-animation .diceMazeMain .dice-demo {
+  position: absolute;
+  left: 3vw;
+  /* 你可以随便改位置 */
+  top: 50vh;
+  width: 12.44vw;
+  height: 20.46vh;
+  pointer-events: auto;
+  /* 允许交互 */
+  border-radius: 1vw;
+  background-size: 100% 100%;
+  overflow: hidden;
+  /* 如果这个也需要圆角，就把 rounded-mask 复制过去 */
+}
+.cube-animation .diceMazeMain .dice-demo .deme {
+  position: absolute;
+  top: 0.65vh;
+  left: 0.36vw;
+  width: 11.74vw;
+  height: 18.3vh;
+  border-radius: 0.55vw;
+  overflow: hidden;
+}
+@keyframes slideInFromLeft {
+  0% {
+    transform: translate3d(-100%, 0, 0);
+    opacity: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+@keyframes fadeInMask {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes slideInFromLeft {
+  0% {
+    transform: translate3d(-100%, 0, 0);
+    opacity: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+.cube-animation .success {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  /* 如果需要纯黑可改成 #000 */
+  z-index: 999;
+  opacity: 0;
+  animation: fadeInMask 0.5s ease-out 2.5s forwards;
+  pointer-events: auto;
+}
+.cube-animation .success-pop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url(http://wx-distribution.oss-cn-hangzhou.aliyuncs.com/distribution/20220427/cubeShow/successPop.png);
+  background-size: 100% 100%;
+  /* 初始在屏幕左侧外侧，延迟 3s 开始滑入（持续 0.6s 平滑减速） */
+  transform: translate3d(-100%, 0, 0);
+  opacity: 0;
+  animation: slideInFromLeft 0.6s cubic-bezier(0.22, 1, 0.36, 1) 3s forwards;
+}

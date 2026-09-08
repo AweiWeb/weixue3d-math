@@ -45,11 +45,11 @@ const Maze = () => {
         </div>
         <MinMap />
         <BottomMessage />
-        {peopleState === 'idle' && gameState === 'playing' && <SelectDirection />}
+        {/* {peopleState === 'idle' && gameState === 'playing' && <SelectDirection />} */}
         {gameState === 'gameOver' && levelID === 4 && <FailMessage />}
         {gameState === 'success' && levelID !== 4 && <SuccessMessage />}
       </KeyboardControls>
-      {/* {gameState === 'init' && <Startbox />} */}
+      {gameState === 'init' && <Startbox />}
       <LevelSelect />
     </div>
   )

@@ -11,8 +11,20 @@ const games = [
     path: "grain",
     title: "粮食仓库",
     desc: "观察粮食袋的变化",
-    isSuccess: true
+    isSuccess: false
   },
+  {
+    path: 'cube-animation',
+    title: "骰子迷宫",
+    desc: '观察立方体每个面的对应关系',
+    isSuccess: false
+  },
+  {
+    path: 'block-maze',
+    title: 'Block Maze',
+    desc: '翻转方块观察规律',
+    isSuccess: false
+  }
 ]
 
 const Home = () => {
@@ -57,9 +69,9 @@ const Home = () => {
         }}
       >
         {/* 💡 应用定义好的呼吸动画类名 */}
-       
+
         <h1 className="breathing-text" style={{ fontSize: 'calc(4vw + 3vh)', margin: 0, position: "absolute", top: '15vh' }}>
-          圆桌数理 3D游戏工具 
+          圆桌数理 3D游戏工具
         </h1>
 
         <p style={{ color: "#888", margin: 0 }}>选择一个游戏开始</p>

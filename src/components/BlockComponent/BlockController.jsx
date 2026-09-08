@@ -3,7 +3,8 @@ import { useFrame } from "@react-three/fiber"
 import { useControls } from "leva"
 import { useEffect, useRef } from "react"
 import * as THREE from "three"
-const CubeController = () => {
+import Blocker from "./Block"
+const BlockController = () => {
     // selector 形式订阅，按键状态变化会触发重渲染
     // const [_, get] = useKeyboardControls()
     const forward = useKeyboardControls((state) => state.forward)
@@ -16,11 +17,11 @@ const CubeController = () => {
     const rollState = useRef({
         axis: new THREE.Vector3(),
         angle: 0,
-        speed:  0.8
+        speed: 0.8
     })
     const isRolling = useRef(false)
 
-    const {speedParams} = useControls('立方体调试', {
+    const { speedParams } = useControls('立方体调试', {
         speedParams: {
             value: 7,
             min: 1,
@@ -36,69 +37,67 @@ const CubeController = () => {
         // console.log(forward, backward, left, right)
         // 没有按键按下时不处理（松开按键也会触发 effect，直接拦截）
         if (!forward && !backward && !left && !right) return
-        if(isRolling.current) return
+        if (isRolling.current) return
         console.log("useEffect");
         /*
         * 获取立方体最新的位置信息
         */
-       const box = new THREE.Box3().setFromObject(meshRef.current)
-       const center = new THREE.Vector3()
-       box.getCenter(center)
+        const box = new THREE.Box3().setFromObject(meshRef.current)
+        const center = new THREE.Vector3()
+        box.getCenter(center)
         console.log(box, 'shdajkh', center);
-        
-       let aixs = new THREE.Vector3()
-       let newPosition = new THREE.Vector3()
-        if(forward){
+
+        let aixs = new THREE.Vector3()
+        let newPosition = new THREE.Vector3()
+        if (forward) {
             aixs.set(-1, 0, 0)
             newPosition.set(center.x, box.min.y, box.min.z)
-        } else if(backward){
+        } else if (backward) {
             aixs.set(1, 0, 0)
             newPosition.set(center.x, box.min.y, box.max.z)
-        } else if(left){
+        } else if (left) {
             aixs.set(0, 0, 1)
             newPosition.set(box.min.x, box.min.y, center.z)
-        } else if(right){
+        } else if (right) {
             aixs.set(0, 0, -1)
             newPosition.set(box.max.x, box.min.y, center.z)
-        }else{
+        } else {
             return
         }
         // console.log(newPosition, aixs);
-            
+
         parentRef.current.position.copy(newPosition)
         parentRef.current.attach(meshRef.current)
-    
+
         rollState.current.axis = aixs
         rollState.current.angle = Math.PI * 0.5
         rollState.current.speed = 1
         isRolling.current = true
-    
+
     }, [forward, backward, left, right])
+
     useFrame((_, delta) => {
-        if(isRolling.current){
-          const step = speedParams * delta
-          if(rollState.current.angle > step){
-            parentRef.current.rotateOnWorldAxis(rollState.current.axis, step)
-            rollState.current.angle -= step
-          }else{
-            parentRef.current.rotateOnWorldAxis(rollState.current.axis, rollState.current.angle)
-            isRolling.current = false
-            groupRef.current.attach(meshRef.current)
-            parentRef.current.position.set(0, 0, 0)
-            parentRef.current.rotation.set(0, 0, 0)
-            // 角度取整到 90° 倍数，防止多次翻滚后浮点误差累积
-          }
+        if (isRolling.current) {
+            const step = speedParams * delta
+            if (rollState.current.angle > step) {
+                parentRef.current.rotateOnWorldAxis(rollState.current.axis, step)
+                rollState.current.angle -= step
+            } else {
+                parentRef.current.rotateOnWorldAxis(rollState.current.axis, rollState.current.angle)
+                isRolling.current = false
+                groupRef.current.attach(meshRef.current)
+                parentRef.current.position.set(0, 0, 0)
+                parentRef.current.rotation.set(0, 0, 0)
+                // 角度取整到 90° 倍数，防止多次翻滚后浮点误差累积
+            }
         }
     })
     return <group ref={groupRef}>
         <group ref={parentRef} />
-            <mesh ref={meshRef} position={[0, 1, 0]}>
-            <boxGeometry args={[1, 2, 1]} />
-            <meshStandardMaterial color="red" />
-        </mesh>
+        <Blocker ref={meshRef} position={[-17.5, 0, -7.5]} />
     </group>
 }
 
 
 
-export default CubeController
+export default BlockController

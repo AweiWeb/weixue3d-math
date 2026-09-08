@@ -1,10 +1,375 @@
-.cube-animation{
+.cube-animation {
     position: absolute;
-    width: 100vw;
-    height: 100vh;
-    .cubeCanvas{
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* 替换 100vw */
+    height: 100%;
+    /* 替换 100vh */
+    background-image: url('http://wx-distribution.oss-cn-hangzhou.aliyuncs.com/distribution/20220427/cubeShow/cubeShow-back.png');
+    background-size: 100% 100%;
+    overflow: hidden;
+
+    // .canvas {
+    //     position: fixed !important;
+    //     top: 0;
+    //     left: 0;
+    //     right: 0;
+    //     bottom: 0;
+    //     width: 100% !important;
+    //     /* 替换 100vw */
+    //     height: 100% !important;
+    //     /* 替换 100vh */
+    //     pointer-events: none;
+    //     /* 让事件穿透到下方的 HTML，避免 Canvas 挡住 DOM 交互 */
+    // }
+
+    .cubeCanvas {
         position: absolute;
+        left: 41vw;
+        top: 12.1vh;
+        width: 54.4vw;
+        height: 76vh;
+        // background-color: rgba(200, 0, 0, 0.2);
+        border-radius: 1.8vw;
+        overflow: hidden;
+    }
+
+    .selectBroad {
+        position: absolute;
+        left: 4.5vw;
+        top: 57.1vh;
+        width: 27vw;
+        height: 32vh;
+        // background-color: rgba(200, 0, 0, 0.2);
+        display: flex;
+        flex-wrap: wrap;
+
+
+        .select {
+            width: 7.7vw;
+            height: 5.5vh;
+            background-size: 100% 100%;
+            margin-top: 1vh;
+            margin-left: 1vw;
+        }
+    }
+
+    .timeSlider {
+        position: absolute;
+        left: 4.5vw;
+        top: 50.7vh;
+        width: 27vw;
+        height: 5vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        // background-color: rgba(200, 0, 0, 0.2);
+
+        .sliderCube {
+            width: 100%;
+
+            .ant-slider-rail {
+                background-color: white;
+            }
+
+            .ant-slider-track {
+                background-color: rgba(255, 113, 63, 1);
+            }
+
+            .ant-slider-handle::after {
+                /* 用 2px 的实体阴影模拟边框 */
+                box-shadow: 0 0 0 4px rgba(255, 113, 63, 1) !important;
+            }
+        }
+    }
+
+    .static-cube {
+        position: absolute;
+        left: 4.6vw;
+        width: 26.4vw;
+        top: 11.9vh;
+        height: 36.7vh;
+        border-radius: 1.2vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        // background-color: red;
+        .cubeImg {
+            width: 24.4vw;
+            height: 27.7vh;
+            background-size: 100% 100%;
+        }
+    }
+
+    .select-topic {
+        position: absolute;
+        left: 7vw;
+        width: 86vw;
+        top: 15vh;
+        height: 43vh;
+        // background-color: red;
+        z-index: 2;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+
+        .topic {
+            width: 27vw;
+            height: 40vh;
+            // background-color: red;
+            background-size: 100% 100%;
+            transition: all linear 0.2s;
+
+            &:hover {
+                transform: scale(1.01);
+            }
+        }
+    }
+
+    .cubeShowpop {
+        position: absolute;
+        z-index: 10;
         width: 100vw;
         height: 100vh;
+        background-color: rgba(0, 0, 0, 0.7);
+
+        .resetbtn {
+            position: absolute;
+            left: 40vw;
+            top: 80vh;
+            width: 19.3vw;
+            height: 11.57vh;
+            background-image: url('http://wx-distribution.oss-cn-hangzhou.aliyuncs.com/distribution/20220427/cubeShow/resetSelect.png');
+            background-size: 100% 100%;
+            transition: all linear 0.15s;
+
+            &:hover {
+                transform: scale(1.03);
+            }
+        }
+
+        .cubeTopic {
+            position: absolute;
+            left: 11vw;
+            top: 7vh;
+            width: 78vw;
+            height: 69.44vh;
+            border-radius: 2vw;
+            background-color: #fff;
+            overflow: hidden;
+
+            .sliderBox {
+                position: absolute;
+                width: 100%;
+                height: 7vh;
+                bottom: 0;
+                background-color: rgba(0, 0, 0, 0.2);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                .topicSlider {
+                    width: 88%;
+
+                    .ant-slider-rail {
+                        background-color: white;
+                    }
+
+                    .ant-slider-track {
+                        background-color: rgba(255, 113, 63, 1);
+                    }
+
+                    .ant-slider-handle::after {
+                        /* 用 2px 的实体阴影模拟边框 */
+                        box-shadow: 0 0 0 4px rgba(255, 113, 63, 1) !important;
+                    }
+                }
+            }
+        }
+    }
+
+    .select-box {
+        position: absolute;
+        top: 15vh;
+        left: 0;
+        width: 7vw;
+        height: 30vh;
+        opacity: 0;
+        z-index: 105;
+
+        .selectItem {
+            position: absolute;
+            width: 4.2vw;
+            height: 9.8vh;
+            background-size: 100% 100%;
+            transition: all 0.2s ease-in-out;
+            cursor: pointer;
+        }
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    .global-canvas-wrap {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .view-container {
+        position: absolute;
+        inset: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    /* 🌟 新增：多视图布局层 */
+    .diceMazeMain {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        /* 浮在 Canvas 容器上方 */
+        pointer-events: none;
+        /* 整体穿透，只让需要交互的地方 auto */
+
+        /* 统一 View 容器样式：让它撑满父级洞口 */
+        .view-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* 洞口 1：主操作区 */
+        .dice-home {
+            position: absolute;
+            left: 5.75vw;
+            top: 8vh;
+            width: 88.45vw;
+            height: 84.15vh;
+            pointer-events: auto;
+
+            .message {
+                position: absolute;
+                width: 59.27vw;
+                height: 3.98vh;
+                background-size: 100% 100%;
+                bottom: 3vh;
+                left: 16vw;
+                z-index: 2;
+            }
+        }
+
+        /* 洞口 2：你的第二个模型区 */
+        .dice-demo {
+            position: absolute;
+            left: 3vw;
+            /* 你可以随便改位置 */
+            top: 50vh;
+            width: 12.44vw;
+            height: 20.46vh;
+            pointer-events: auto;
+            /* 允许交互 */
+            border-radius: 1vw;
+            background-size: 100% 100%;
+            overflow: hidden;
+
+            .deme {
+                position: absolute;
+                top: 0.65vh;
+                left: 0.36vw;
+                width: 11.74vw;
+                height: 18.3vh;
+                border-radius: 0.55vw;
+                // background-color: red
+                overflow: hidden;
+            }
+
+            /* 如果这个也需要圆角，就把 rounded-mask 复制过去 */
+        }
+    }
+
+    @keyframes slideInFromLeft {
+        0% {
+            transform: translate3d(-100%, 0, 0);
+            opacity: 0;
+        }
+
+        1% {
+            opacity: 1;
+        }
+
+        100% {
+            transform: translate3d(0, 0, 0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes fadeInMask {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    /* 子级从左滑入动画 */
+    @keyframes slideInFromLeft {
+        0% {
+            transform: translate3d(-100%, 0, 0);
+            opacity: 0;
+        }
+
+        1% {
+            opacity: 1;
+        }
+
+        100% {
+            transform: translate3d(0, 0, 0);
+            opacity: 1;
+        }
+    }
+
+    .success {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.7);
+        /* 如果需要纯黑可改成 #000 */
+        z-index: 999;
+
+        opacity: 0;
+        animation: fadeInMask 0.5s ease-out 2.5s forwards;
+        pointer-events: auto;
+    }
+
+    /* 2. 子级 Pop 弹窗：延迟 3 秒从左侧滑入 */
+    .success-pop {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-image: url(http://wx-distribution.oss-cn-hangzhou.aliyuncs.com/distribution/20220427/cubeShow/successPop.png);
+        background-size: 100% 100%;
+
+        /* 初始在屏幕左侧外侧，延迟 3s 开始滑入（持续 0.6s 平滑减速） */
+        transform: translate3d(-100%, 0, 0);
+        opacity: 0;
+        animation: slideInFromLeft 0.6s cubic-bezier(0.22, 1, 0.36, 1) 3s forwards;
     }
 }

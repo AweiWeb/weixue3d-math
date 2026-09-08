@@ -15,21 +15,87 @@
   width: 26.5vw;
   height: 34vh;
   background-size: 100% 100%;
-  background-image: url('http://wx-distribution.oss-cn-hangzhou.aliyuncs.com/distribution/20220427/maze-3d/minMap1.png');
+  z-index: 101;
+}
+.MazeHome .minMap.zoomed {
+  right: auto;
 }
 .MazeHome .minMap .peopleArrow {
   position: absolute;
   left: 5.6vw;
   top: 14.2vh;
   background-size: 100% 100%;
-  width: 2vw;
-  height: 2vh;
-  background-image: url('http://wx-distribution.oss-cn-hangzhou.aliyuncs.com/distribution/20220427/maze-3d/peopleIcon.png');
+  width: 2.2vw;
+  height: 4vh;
+  background-image: url('http://wx-distribution.oss-cn-hangzhou.aliyuncs.com/distribution/20220427/maze-3d/peopleArrow.png');
+  /* 根据箭头中心 (50%, 50%) 向四周扩散 */
+}
+.MazeHome .minMap .peopleArrow .dir-btn {
+  position: absolute;
+  /* 热区大小，可根据手感微调 */
+  width: 2.5vw;
+  height: 2.5vw;
+  /* 测试排版时，可以把透明度改成 0.5 看看位置：background-color: rgba(255, 0, 0, 0.5); */
+  background-color: rgba(255, 0, 0, 0.5);
+  cursor: pointer;
+  /* 将热区自身的中心点对齐 */
+  transform: translate(-50%, -50%);
+  pointer-events: auto;
+  /* 保证透明元素依然可以响应点击 */
+}
+.MazeHome .minMap .peopleArrow .dir-btn.forward {
+  top: 50%;
+  left: 210%;
+  /* 箭头右侧 */
+}
+.MazeHome .minMap .peopleArrow .dir-btn.backward {
+  top: 50%;
+  left: -110%;
+  /* 箭头左侧 */
+}
+.MazeHome .minMap .peopleArrow .dir-btn.left {
+  top: -110%;
+  /* 箭头正上方 */
+  left: 50%;
+}
+.MazeHome .minMap .peopleArrow .dir-btn.right {
+  top: 210%;
+  /* 箭头正下方 */
+  left: 50%;
+}
+.MazeHome .minmap-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.MazeHome .minmap-mask.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+@keyframes breathing {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.25);
+    /* 放大到 1.25 倍，可根据你的视觉需求微调 */
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 .MazeHome .select-direction {
   position: absolute;
   left: 42.5vw;
-  top: 45vh;
+  top: 76vh;
   width: 15vw;
   z-index: 2;
   display: flex;
@@ -57,5 +123,54 @@
   transform: scale(0.9);
 }
 .MazeHome .select-direction .direction-btn:hover {
+  transform: scale(1.05);
+}
+.MazeHome .fail-message .resetBtn:active {
+  transform: scale(0.9);
+}
+.MazeHome .fail-message .resetBtn:hover {
+  transform: scale(1.05);
+}
+.MazeHome .select-box {
+  position: absolute;
+  top: 15vh;
+  left: 0;
+  width: 7vw;
+  height: 50vh;
+  opacity: 0;
+  z-index: 105;
+}
+.MazeHome .select-box .selectItem {
+  position: absolute;
+  width: 4.2vw;
+  height: 9.8vh;
+  background-size: 100% 100%;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+.MazeHome .select-box:hover {
+  opacity: 1;
+}
+.MazeHome .success-message {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-size: 100% 100%;
+  z-index: 102;
+  background-image: url('../assets/maze-3d/successback.png');
+}
+.MazeHome .success-message .success-content {
+  position: absolute;
+  left: 24.75vw;
+  top: 28vh;
+  width: 50.5vw;
+  height: 26.38vh;
+  background-image: url('../assets/maze-3d/successmessage.png');
+  background-size: 100% 100%;
+}
+.MazeHome .success-message .next-btn:active {
+  transform: scale(0.9);
+}
+.MazeHome .success-message .next-btn:hover {
   transform: scale(1.05);
 }
