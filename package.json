@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "build:maze": "vite build --config vite.maze.config.js",
+    "build:maze": "vite build --config builds/maze/vite.config.js",
+    "build:dice": "vite build --config builds/dice/vite.config.js",
+    "build:blockMaze": "vite build --config builds/blockMaze/vite.config.js",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -15,6 +17,7 @@
     "@react-three/postprocessing": "^3.0.4",
     "@react-three/rapier": "^2.2.0",
     "antd": "^6.5.2",
+    "howler": "^2.2.4",
     "leva": "^0.10.1",
     "postprocessing": "^6.39.4",
     "r3f-perf": "^7.2.3",

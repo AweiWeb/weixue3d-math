@@ -3,6 +3,7 @@ import { useGLTF, useKeyboardControls } from "@react-three/drei"
 import { useFrame } from "@react-three/fiber"
 import { useEffect, useRef } from "react"
 import * as THREE from 'three'
+import { DiceData } from '../../assets/diceAssets'
 const Dice = (prop) => {
     const mapData = useCubeBreak((state) => state.mapData)
     const gameState = useCubeBreak((state) => state.gameState)
@@ -19,7 +20,7 @@ const Dice = (prop) => {
     const groupRef = useRef(null)
     const parentRef = useRef(null)
     const diceRef = useRef(null)
-    const { scene } = useGLTF('/cubeAnimation/dice.glb')
+    const { scene } = useGLTF(DiceData.dice)
     const rollState = useRef({
         axis: new THREE.Vector3(),
         angle: 0,

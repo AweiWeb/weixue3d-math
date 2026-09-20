@@ -1823,6 +1823,11 @@ hls.js@^1.5.17:
   resolved "https://registry.npmjs.org/hls.js/-/hls.js-1.5.20.tgz"
   integrity sha512-uu0VXUK52JhihhnN/MVVo1lvqNNuhoxkonqgO3IpjvQiGpJBdIXMGkofjQb/j9zvV7a1SW8U9g1FslWx/1HOiQ==
 
+howler@^2.2.4:
+  version "2.2.4"
+  resolved "https://registry.npmmirror.com/howler/-/howler-2.2.4.tgz#bd3df4a4f68a0118a51e4bd84a2bfc2e93e6e5a1"
+  integrity sha512-iARIBPgcQrwtEr+tALF+rapJ8qSc+Set2GJQl7xT1MQzWaVkFebdJhR3alVlSiUf5U7nAANKuj3aWpwerocD5w==
+
 iconv-lite@^0.4.4:
   version "0.4.24"
   resolved "https://registry.npmmirror.com/iconv-lite/-/iconv-lite-0.4.24.tgz"

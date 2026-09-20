@@ -1,11 +1,12 @@
 import useCubeBreak from "@/store/cubeBreak"
-
+import { cubeShowImages } from '@/assets/diceAssets'
 const StaticCube = () => {
     const currentCubeId = useCubeBreak((state) => state.currentCubeId)
+
     return <div className="static-cube">
         <div className="cubeImg"
             style={{
-                backgroundImage: `url(http://wx-distribution.oss-cn-hangzhou.aliyuncs.com/distribution/20220427/cubeShow/cubeStatic${currentCubeId}.png)`
+                backgroundImage: `url(${cubeShowImages.cubeStatic[currentCubeId]})`
             }}></div>
     </div>
 }

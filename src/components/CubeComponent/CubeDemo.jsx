@@ -1,6 +1,7 @@
 import useCubeBreak from "@/store/cubeBreak"
 import { useAnimations, useGLTF } from "@react-three/drei"
 import { useEffect, useMemo } from "react"
+import { CubeNumber, CubeTopic } from '../../assets/diceAssets'
 // import * as SkeletonUtils from "three/addons/utils/SkeletonUtils.js"
 
 /*
@@ -14,8 +15,10 @@ const CubeDemo = ({ name, ...props }) => {
     const currentProgress = useCubeBreak(
         state => state.currentProgress
     )
-    const url = `/cubeAnimation/${levelID === 1 ? 'cube' : 'topic'}${name}.glb`
-    const { scene, animations } = useGLTF(url)
+    const url = `${levelID === 1 ? 'cube' : 'topic'}${name}`
+    console.log(CubeNumber);
+
+    const { scene, animations } = useGLTF(`${levelID === 1 ? CubeNumber[url] : CubeTopic[url]}`)
 
     /**
      * 创建独立模型实例

@@ -57,6 +57,8 @@ import right3Url from './maze-3d/right3.png'
 import maskMap1 from './maze-3d/mapMark1.png'
 import maskMap2 from './maze-3d/mapMark2.png'
 import maskMap4 from './maze-3d/mapMark4.png'
+
+
 export const gameMapUrls = { map: map1Url, map2: map2Url, map3: map3Url, map4: map4Url }
 export const peopleUrl = p7Url
 export const endDoorUrl = doorUrl
@@ -88,3 +90,4 @@ export const uiImages = {
         right: { 1: right1Url, 2: right2Url, 3: right3Url },
     },
 }
+

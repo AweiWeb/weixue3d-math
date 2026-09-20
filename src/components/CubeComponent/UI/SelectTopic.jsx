@@ -1,6 +1,6 @@
 import useCubeBreak from "@/store/cubeBreak"
 import { useState } from "react" // 引入 useState
-
+import { cubeShowImages } from '@/assets/diceAssets'
 const SelectTopic = () => {
     const cubeTopicData = useCubeBreak((state) => state.cubeTopicData)
     // 引入刚刚在 store 中新增的方法
@@ -19,7 +19,7 @@ const SelectTopic = () => {
                         onMouseLeave={() => setHoveredId(null)}
                         onClick={() => { changeTopicId(item.id), setPopVisible(true) }}
                         style={{
-                            backgroundImage: `url(http://wx-distribution.oss-cn-hangzhou.aliyuncs.com/distribution/20220427/cubeShow/topic${item.id}-${imgSuffix}.png)`
+                            backgroundImage: `url(${cubeShowImages.topic[item.id][imgSuffix]})`
                         }}
                     >
                     </div>

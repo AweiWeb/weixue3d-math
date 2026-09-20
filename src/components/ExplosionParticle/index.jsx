@@ -12,7 +12,7 @@ const tmRotation = new THREE.Quaternion()
 const tmScale = new THREE.Vector3(1, 1, 1)
 const tmMatrix = new THREE.Matrix4()
 
-const ExplosionParticle = ({ geometry, particleCount, direction, speed, ...prop }) => {
+const ExplosionParticle = ({ initPosition = [0, 17, 0], geometry, particleCount, direction, speed, ...prop }) => {
     /*
     *粒子特效
     */
@@ -111,7 +111,7 @@ const ExplosionParticle = ({ geometry, particleCount, direction, speed, ...prop 
             clock.elapsedTime - startTimeRef.current;
     })
     const defaultGeometry = useMemo(() => new THREE.PlaneGeometry(2, 2), [])
-    return <group position={[0, 17, 0]}>
+    return <group position={initPosition}>
         <instancedMesh args={[defaultGeometry, null, particleCount]} ref={particleRef}>
             {geometry}
             <particleMaterial transparent={true} side={THREE.DoubleSide} />

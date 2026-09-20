@@ -8,6 +8,7 @@ const Grain = lazy(() => import("../page/Grain"))
 const Home = lazy(() => import("../page/Home"))
 const BlockMaze = lazy(() => import("../page/BlockMaze"))
 const CubeAnimation = lazy(() => import("../page/CubeAnimation"))
+const badDesign = lazy(() => import('../page/BadDesign/index'))
 const router = createHashRouter([
     {
         path: "/",
@@ -32,6 +33,9 @@ const router = createHashRouter([
             {
                 path: "cube-animation",
                 Component: CubeAnimation,
+            }, {
+                path: 'bad-design',
+                Component: badDesign
             }
         ],
     },

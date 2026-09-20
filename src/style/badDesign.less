@@ -1,0 +1,56 @@
+.BadDesign {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: transparent;
+
+    .threeBox {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        z-index: 2;
+    }
+
+    .side-button {
+        position: absolute;
+        width: 6vw;
+        left: 2vw;
+        top: 5vh;
+        height: 20vh;
+        // background-color: red;
+        z-index: 12;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+
+        .withdraw,
+        .reset {
+            width: 4vw;
+            height: 7.6vh;
+            background-size: 100% 100%;
+            cursor: pointer;
+            user-select: none;
+            transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.2s ease;
+
+            &:hover {
+                transform: scale(1.08);
+                filter: brightness(1.1) drop-shadow(0 4px 8px rgba(0, 0, 0, 0.25));
+            }
+
+            &:active {
+                transform: scale(0.95);
+                filter: brightness(0.92);
+                transition: transform 0.08s ease, filter 0.08s ease;
+            }
+        }
+
+        .withdraw {
+            background-image: url('/badDesign/withDraw-btn.png');
+        }
+
+        .reset {
+            background-image: url('/badDesign/reset-btn.png');
+        }
+    }
+}

@@ -24,7 +24,13 @@ const games = [
     title: 'Block Maze',
     desc: '翻转方块观察规律',
     isSuccess: false
-  }
+  },
+  {
+    path: 'bad-design',
+    title: '糟糕的设计师',
+    desc: '翻转方块观察规律',
+    isSuccess: false
+  },
 ]
 
 const Home = () => {

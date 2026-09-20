@@ -2,11 +2,68 @@
     position: absolute;
     width: 100vw;
     height: 100vh;
-   
+
 
     .block-maze-container {
         position: relative;
         width: 100vw;
         height: 100vh;
+    }
+
+    @keyframes fadeInMask {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    /* 子级从左滑入动画 */
+    @keyframes slideInFromLeft {
+        0% {
+            transform: translate3d(-100%, 0, 0);
+            opacity: 0;
+        }
+
+        1% {
+            opacity: 1;
+        }
+
+        100% {
+            transform: translate3d(0, 0, 0);
+            opacity: 1;
+        }
+    }
+
+    .transition-pop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.7);
+        /* 如果需要纯黑可改成 #000 */
+        z-index: 999;
+
+        opacity: 0;
+        animation: fadeInMask 0.5s ease-out 1s forwards;
+        pointer-events: auto;
+    }
+
+    /* 2. 子级 Pop 弹窗：延迟 3 秒从左侧滑入 */
+    .pop-message {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-size: 100% 100%;
+
+        /* 初始在屏幕左侧外侧，延迟 3s 开始滑入（持续 0.6s 平滑减速） */
+        transform: translate3d(-100%, 0, 0);
+        opacity: 0;
+        animation: slideInFromLeft 0.6s cubic-bezier(0.22, 1, 0.36, 1) 2s forwards;
     }
 }

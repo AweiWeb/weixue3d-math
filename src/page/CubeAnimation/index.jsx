@@ -17,10 +17,10 @@ import '../../style/cubeAnimation.less'
 import { Center, Gltf, KeyboardControls, OrbitControls, useKeyboardControls, View } from '@react-three/drei';
 import { useEffect, useRef, useState } from 'react';
 import SceneEnvironment from '@/components/CubeComponent/SceneEnvironment';
-
+import { DiceData, cubeShowImages } from '@/assets/diceAssets'
 
 const levelBack = {
-    1: 'cubeShow-back',
+    1: 'cubeShowBack',
     2: 'cubeTopic',
     3: 'diceback'
 }
@@ -68,7 +68,7 @@ const CubeAnimation = () => {
         <div className="cube-animation"
             ref={DiceContainer}
             style={{
-                backgroundImage: `url(http://wx-distribution.oss-cn-hangzhou.aliyuncs.com/distribution/20220427/cubeShow/${levelBack[levelID]}.png)`
+                backgroundImage: `url(${cubeShowImages[levelBack[levelID]]})`
             }}>
             <LevelSelect />
             {levelID === 1 && <div>
@@ -119,7 +119,7 @@ const CubeAnimation = () => {
                         style={{ borderRadius: '1.8vw', overflow: 'hidden' }}
                     >
                         <ToggleTheme />
-                        <div className='message' style={{ backgroundImage: `url(http://wx-distribution.oss-cn-hangzhou.aliyuncs.com/distribution/20220427/cubeShow/message${theme === 'light' ? 1 : 2}.png)` }}></div>
+                        <div className='message' style={{ backgroundImage: `url(${cubeShowImages.message[theme === 'light' ? 1 : 2]})` }}></div>
                         {/* Canvas 直接铺满这个带有圆角的盒子 */}
                         <Canvas
                             dpr={[1, 2]}
@@ -141,7 +141,7 @@ const CubeAnimation = () => {
 
                     </div>
 
-                    <div className='dice-demo' ref={DiceDemo} style={{ backgroundImage: `url(http://wx-distribution.oss-cn-hangzhou.aliyuncs.com/distribution/20220427/cubeShow/pop1.png)`, display: showDemo ? 'block' : 'none' }}>
+                    <div className='dice-demo' ref={DiceDemo} style={{ backgroundImage: `url(${cubeShowImages.pop[1]})`, display: showDemo ? 'block' : 'none' }}>
                         <div className='deme'>
                             <Canvas
                                 dpr={[1, 2]}
@@ -155,7 +155,7 @@ const CubeAnimation = () => {
                                 <OrbitControls />
                                 <SceneEnvironment isGrid={false} lightInstenity={3} isTransparent={true} />
                                 <Center>
-                                    <Gltf position={[0, 0, 0]} src='/cubeAnimation/dice.glb' />
+                                    <Gltf position={[0, 0, 0]} src={DiceData.dice} />
                                 </Center>
                             </Canvas>
                         </div>
